@@ -1,3 +1,6 @@
+use crosswebx::hello;
+
 fn main() {
-    println!("Hello, world!");
+    let s = hello();
+    println!("{s}");
 }
