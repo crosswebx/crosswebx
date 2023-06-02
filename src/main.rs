@@ -18,7 +18,7 @@ fn main() {
             } => {
                 println!("The close button was pressed; stopping");
                 control_flow.set_exit();
-            }
+            },
             _ => {}
         }
     });
