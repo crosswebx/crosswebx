@@ -1,25 +1,5 @@
-use winit::{
-    event::{Event, WindowEvent},
-    event_loop::EventLoop,
-    window::WindowBuilder,
-};
+use crosswebx::run;
 
 fn main() {
-    let event_loop = EventLoop::new();
-    let window = WindowBuilder::new().build(&event_loop).unwrap();
-
-    event_loop.run(move |event, _, control_flow| {
-        control_flow.set_wait();
-
-        match event {
-            Event::WindowEvent {
-                event: WindowEvent::CloseRequested,
-                ..
-            } => {
-                println!("The close button was pressed; stopping");
-                control_flow.set_exit();
-            },
-            _ => {}
-        }
-    });
+    pollster::block_on(run());
 }
